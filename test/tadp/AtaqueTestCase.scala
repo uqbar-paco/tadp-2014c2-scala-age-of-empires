@@ -38,7 +38,7 @@ class AtaqueTestCase {
 
   @Test
   def `tanque ataca a guerrero` = {
-    val tanque: Tanque = new Tanque
+    val tanque = new Tanque
     val guerrero: Guerrero = new Guerrero
 
     //    assertAtacadoQuedaCon(tanque, guerrero, 80)
@@ -82,15 +82,25 @@ class AtaqueTestCase {
     assertEquals(80, conan.energia)
   }
 
-  //  @Test
-  //  def `espadachin ataca a guerrero` = {
-  //    val leono: Guerrero = new Espadachin(new Espada)
-  //    val conan: Guerrero = new Guerrero
-  //
-  //    leono.atacarA(conan)
-  //
-  //    assertEquals(50, conan.energia)
-  //  }
+  @Test
+  def `espadachin ataca a guerrero` = {
+    val leono: Guerrero = new Espadachin(new Espada)
+    val conan: Guerrero = new Guerrero
+
+    leono.atacarA(conan)
+
+    assertEquals(50, conan.energia)
+  }
+
+  @Test
+  def `espadachin ataca a otro guerrero` = {
+    val conan: Guerrero = new Guerrero
+    val leono: Guerrero = new Espadachin(conan)
+
+    leono.atacarA(defensor=conan)
+
+    assertEquals(32, conan.energia)
+  }
   //
   //  
   //  

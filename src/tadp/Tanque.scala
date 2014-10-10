@@ -3,7 +3,7 @@ package tadp
 class Tanque extends Atacante with Defensor {
 
   override def atacarA(defensor: Defensor) = {
-	  defensor.recibirDanioFuerte(danioCreado(defensor), 1000)
+	  defensor.teAtacoUnTanque(this)
   }
 
   def atacarATodos(defensores: List[Defensor]) = {

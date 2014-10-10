@@ -6,10 +6,19 @@ trait Defensor {
 
   def potencialDefensivo = 75
 
+  def teAtacoUnAtacante(atacante: Atacante) = {
+    if (atacante.potencialOfensivo >
+      this.potencialDefensivo) {
+      val danio = atacante.potencialOfensivo -
+        this.potencialDefensivo
+      this.recibirDanio(danio)
+    }
+  }
+
+  def teAtacoUnTanque(tanque: Tanque) =
+    this.teAtacoUnAtacante(tanque)
+
   def recibirDanio(danio: Int) =
     this.energia = Math.max(0, energia - danio)
 
-  def recibirDanioFuerte(danioNormal: Int, danioFuerte: Int) = {
-    this.recibirDanio(danioNormal)
-  }
 }

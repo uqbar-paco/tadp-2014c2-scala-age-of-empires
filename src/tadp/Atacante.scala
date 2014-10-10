@@ -5,15 +5,7 @@ trait Atacante {
   def potencialOfensivo = 80
 
   def atacarA(defensor: Defensor) = {
-    defensor.recibirDanio(danioCreado(defensor))
+    defensor.teAtacoUnAtacante(this)
   }
 
-  def danioCreado(defensor: Defensor) = {
-    if (this.potencialOfensivo >
-      defensor.potencialDefensivo) {
-      this.potencialOfensivo -
-        defensor.potencialDefensivo
-    } else
-      0
-  }
 }
